@@ -28,6 +28,7 @@ public class Bank {
     public boolean withdrawMoney(final BankAccount bankAccount, final double amount) {
         if (bankAccount.getAccountBalance() >= amount) {
             bankAccount.setAccountBalance(bankAccount.getAccountBalance() - amount);
+            System.out.println(bankAccount.getOwnerName() + " now has " + bankAccount.getAccountBalance());
             return true;
         } else {
             return false;
@@ -47,6 +48,7 @@ public class Bank {
      */
     public boolean depositMoney(final BankAccount bankAccount, final double amount) {
         bankAccount.setAccountBalance(bankAccount.getAccountBalance() + amount);
+        System.out.println(bankAccount.getOwnerName() + " now has " + bankAccount.getAccountBalance());
         return true;
     }
 
@@ -67,6 +69,9 @@ public class Bank {
         if (source.getAccountBalance() >= amount) {
             source.setAccountBalance(source.getAccountBalance() - amount);
             destination.setAccountBalance(destination.getAccountBalance() + amount);
+            System.out.println(source.getOwnerName() + " Transfers " + amount + " to " + destination.getOwnerName());
+            System.out.println(source.getOwnerName() + " has " + source.getAccountBalance());
+            System.out.println(destination.getOwnerName() + " has " + destination.getAccountBalance());
             return true;
         } else {
             return false;
